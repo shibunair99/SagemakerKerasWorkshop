@@ -113,13 +113,13 @@ git clone https://github.com/aws/sagemaker-tensorflow-container.git
 2\. We will be using TensorFlow 1.8.0 so lets switch to the appropriate directory
 
 ```
-cd sagemaker-tensorflow-container/docker/1.8.0/base
+cd agemaker-tensorflow-container/docker/1.15.2/py37
 ```
 
 3\. If you list the directory contents here, you will notice that there are two Dockerfiles - one made for CPU based nodes and another for GPU based. Since, we will be using CPU machines, lets build the CPU docker image
 
 ```
-docker build -t tensorflow-base:1.8.0-cpu-py2 -f Dockerfile.cpu .
+docker build -t tensorflow-base:1.15.2-cpu-py37 -f Dockerfile.cpu .
 ```
 
 Building the docker images should not take more than 5-7 minutes. Once finished, you can list the images by running `docker images`. You should see the new base image named `tensorflow-base:1.8.0-cpu-py2`.
@@ -135,7 +135,7 @@ cd ~/SageMaker/sagemaker-keras-text-classification/container/
 ```
 # Build an image that can do training and inference in SageMaker
 
-FROM tensorflow-base:1.8.0-cpu-py2
+FROM tensorflow-base:1.15.2-cpu-py37
 
 ENV PATH="/opt/program:${PATH}"
 
